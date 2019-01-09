@@ -27,16 +27,13 @@ public class AppUserDAO {
     }
 
     private static void initDATA() {
-        String encrytedPassword = "";
+        String encryptedPassword = "";
 
-        AppUser tom = new AppUser(1L, "tom", "Tom", "Tom", //
-                true, Gender.MALE, "tom@waltdisney.com", encrytedPassword, "US");
-
-        AppUser jerry = new AppUser(2L, "jerry", "Jerry", "Jerry", //
-                true, Gender.MALE, "jerry@waltdisney.com", encrytedPassword, "US");
+        AppUser tom = new AppUser(1L, "tom", "Tom", "Tom",true, Gender.MALE, "tom@waltdisney.com", encryptedPassword, "US");
+        AppUser ann = new AppUser(2L, "ann", "ann", "ann",true, Gender.FEMALE, "ann@waltdisney.com", encryptedPassword, "US");
 
         USERS_MAP.put(tom.getUserId(), tom);
-        USERS_MAP.put(jerry.getUserId(), jerry);
+        USERS_MAP.put(ann.getUserId(), ann);
     }
 
     private Long getMaxUserId() {
@@ -48,8 +45,6 @@ public class AppUserDAO {
         }
         return max;
     }
-
-    //
 
     public AppUser findAppUserByUserName(String userName) {
         Collection<AppUser> appUsers = USERS_MAP.values();
@@ -77,12 +72,12 @@ public class AppUserDAO {
 
     public AppUser createAppUser(AppUserForm form) {
         Long userId = this.getMaxUserId() + 1;
-        String encrytedPassword = this.passwordEncoder.encode(form.getPassword());
+        String encryptedPassword = this.passwordEncoder.encode(form.getPassword());
 
-        AppUser user = new AppUser(userId, form.getUserName(), //
-                form.getFirstName(), form.getLastName(), false, //
-                form.getGender(), form.getEmail(), form.getCountryCode(), //
-                encrytedPassword);
+        AppUser user = new AppUser(userId, form.getUserName(),
+                form.getFirstName(), form.getLastName(), false,
+                form.getGender(), form.getEmail(), form.getCountryCode(),
+                encryptedPassword);
 
         USERS_MAP.put(userId, user);
         return user;

@@ -7,7 +7,7 @@
             padding: 5px;
         }
         td span  {
-            font-size:90%;
+            font-size:80%;
             font-style: italic;
             color: red;
         }
@@ -23,8 +23,12 @@
         }
         fieldset{
             border: 1px solid rgb(0,130,60);
-            width: 400px;
+            width: 1000px;
             margin:auto;
+        }
+        input{
+            height: auto;
+            font-size: large;
         }
     </style>
 </head>
@@ -88,7 +92,7 @@
                                 <option value="" selected hidden> -- </option>
                                 <option th:each="country : ${countries}"
                                         th:value="${country.countryCode}"
-                                        th:utext="${country.countryName}"></option>
+                                        th:utext="${country.countryName}" ></option>
                             </select>
                         </label>
                     <td><span th:if="${#fields.hasErrors('countryCode')}" th:errors="*{countryCode}">..</span></td>

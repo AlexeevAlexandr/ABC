@@ -10,17 +10,14 @@ public class AppUser {
     private boolean enabled;
     private String gender;
     private String email;
-    private String encrytedPassword;
-
+    private String encryptedPassword;
     private String countryCode;
 
     public AppUser() {
 
     }
 
-    public AppUser(Long userId, String userName, String firstName, String lastName, //
-                   boolean enabled, String gender, //
-                   String email,String countryCode, String encrytedPassword) {
+    public AppUser(Long userId, String userName, String firstName, String lastName, boolean enabled, String gender, String email, String countryCode, String encryptedPassword) {
         super();
         this.userId = userId;
         this.userName = userName;
@@ -29,8 +26,8 @@ public class AppUser {
         this.enabled = enabled;
         this.gender = gender;
         this.email = email;
-        this.countryCode= countryCode;
-        this.encrytedPassword = encrytedPassword;
+        this.countryCode = countryCode;
+        this.encryptedPassword = encryptedPassword;
     }
 
     public Long getUserId() {
@@ -89,12 +86,12 @@ public class AppUser {
         this.email = email;
     }
 
-    public String getEncrytedPassword() {
-        return encrytedPassword;
+    public String getEncryptedPassword() {
+        return encryptedPassword;
     }
 
-    public void setEncrytedPassword(String encrytedPassword) {
-        this.encrytedPassword = encrytedPassword;
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
     }
 
     public String getCountryCode() {

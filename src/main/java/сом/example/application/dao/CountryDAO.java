@@ -8,7 +8,7 @@ import java.util.*;
 @Repository
 public class CountryDAO {
 
-    private static final Map<String, Country> COUNTRIES_MAP = new HashMap<>();
+    private static final Map<String, Country> COUNTRIES_MAP = new TreeMap<>();
 
     static {
         initDATA();

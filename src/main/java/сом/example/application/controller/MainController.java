@@ -49,7 +49,6 @@ public class MainController {
         if (target.getClass() == AppUserForm.class) {
             dataBinder.setValidator(appUserValidator);
         }
-        // ...
     }
 
     @RequestMapping("/")
