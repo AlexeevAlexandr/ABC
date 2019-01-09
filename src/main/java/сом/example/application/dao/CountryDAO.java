@@ -3,10 +3,7 @@ package сом.example.application.dao;
 import org.springframework.stereotype.Repository;
 import сом.example.application.model.Country;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class CountryDAO {
@@ -18,26 +15,15 @@ public class CountryDAO {
     }
 
     private static void initDATA() {
-
-        Country vn = new Country("VN", "Vietnam");
-        Country en = new Country("EN", "England");
-        Country fr = new Country("FR", "France");
-        Country us = new Country("US", "US");
-        Country ru = new Country("RU", "Russia");
-
-        COUNTRIES_MAP.put(vn.getCountryCode(), vn);
-        COUNTRIES_MAP.put(en.getCountryCode(), en);
-        COUNTRIES_MAP.put(fr.getCountryCode(), fr);
-        COUNTRIES_MAP.put(us.getCountryCode(), us);
-        COUNTRIES_MAP.put(ru.getCountryCode(), ru);
-    }
-
-    public Country findCountryByCode(String countryCode) {
-        return COUNTRIES_MAP.get(countryCode);
+        String[] countries = Locale.getISOCountries();
+        for (String country : countries) {
+            Locale locale = new Locale("en", country);
+            Country con = new Country(locale.getCountry(),locale.getDisplayCountry(locale));
+            COUNTRIES_MAP.put(con.getCountryCode(),con);
+        }
     }
 
     public List<Country> getCountries() {
         return new ArrayList<>(COUNTRIES_MAP.values());
     }
-
 }
