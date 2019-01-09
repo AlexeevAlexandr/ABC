@@ -78,7 +78,6 @@ public class MainController {
 
         model.addAttribute("appUserForm", form);
         model.addAttribute("countries", countries);
-
         return "registerPage";
     }
 
