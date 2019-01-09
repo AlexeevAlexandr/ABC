@@ -1,8 +1,32 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
     <title>Registration form</title>
+    <style>
+        th, td {
+            padding: 5px;
+        }
+        td span  {
+            font-size:90%;
+            font-style: italic;
+            color: red;
+        }
+        .error {
+            color: red;
+            font-style: italic;
+        }
+        table{
+            margin: 0 auto;
+        }
+        legend{
+            text-align: center;
+        }
+        fieldset{
+            border: 1px solid rgb(0,130,60);
+            width: 400px;
+            margin:auto;
+        }
+    </style>
 </head>
 <body>
 <!-- Include menu.html -->
