@@ -5,7 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import сом.example.application.formbean.AppUserForm;
 import сом.example.application.model.AppUser;
-import сом.example.application.model.Gender;
+import сом.example.application.model.ListUsers;
 
 import java.util.*;
 
@@ -27,13 +27,12 @@ public class AppUserDAO {
     }
 
     private static void initDATA() {
-        String encryptedPassword = "";
-
-        AppUser tom = new AppUser(1L, "tom", "Tom", "Tom",true, Gender.MALE, "tom@waltdisney.com", encryptedPassword, "US");
-        AppUser ann = new AppUser(2L, "ann", "ann", "ann",true, Gender.FEMALE, "ann@waltdisney.com", encryptedPassword, "US");
-
-        USERS_MAP.put(tom.getUserId(), tom);
-        USERS_MAP.put(ann.getUserId(), ann);
+        ArrayList<String> usersList = new ListUsers().listUsers();
+        for (int i = 1; i < usersList.size(); i++) {
+            String[] data = usersList.get(i).split(",");
+            AppUser user = new AppUser(Long.parseLong(data[0]), data[1], data[2], data[3], Boolean.valueOf(data[4]), data[5], data[6], data[7], data[8]);
+            USERS_MAP.put(user.getUserId(), user);
+        }
     }
 
     private Long getMaxUserId() {
