@@ -27,7 +27,7 @@ public class AppUserDAO {
     }
 
     private static void initDATA() {
-        ArrayList<String> usersList = new ListUsers().listUsers();
+        ArrayList<String> usersList = new ListUsers().getUsersFromFile();
         for (int i = 1; i < usersList.size(); i++) {
             String[] data = usersList.get(i).split(",");
             AppUser user = new AppUser(Long.parseLong(data[0]), data[1], data[2], data[3], Boolean.valueOf(data[4]), data[5], data[6], data[7], data[8]);
@@ -79,6 +79,7 @@ public class AppUserDAO {
                 encryptedPassword);
 
         USERS_MAP.put(userId, user);
+        new ListUsers().setUsersToFile(user);
         return user;
     }
 

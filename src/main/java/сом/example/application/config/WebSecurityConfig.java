@@ -21,4 +21,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) {
         // Empty code!
     }
+
+    public boolean isMatchesPassword(String passwordInput, String passwordChecker){
+        return new BCryptPasswordEncoder().matches(passwordInput, passwordChecker);
+    }
 }
