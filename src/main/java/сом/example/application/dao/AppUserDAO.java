@@ -75,7 +75,7 @@ public class AppUserDAO {
 
         AppUser user = new AppUser(userId, form.getUserName(),
                 form.getFirstName(), form.getLastName(), false,
-                form.getGender(), form.getEmail(), form.getCountryCode(),
+                form.getEmail(), form.getCountryCode(), form.getGender(),
                 encryptedPassword);
 
         USERS_MAP.put(userId, user);
