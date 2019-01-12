@@ -1,12 +1,9 @@
 package сом.example.application.model;
 
-import com.opencsv.bean.CsvToBeanBuilder;
-import сом.example.application.dao.RegisteredVisitorsDAO;
+import сом.example.application.config.WebSecurityConfig;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class ListUsers {
@@ -45,28 +42,34 @@ public class ListUsers {
                 user.getEncryptedPassword() + "\n";
     }
 
-    private List<RegisteredVisitorsDAO> readFromCSV(){
-        List<RegisteredVisitorsDAO> beans = null;
-        try {
-        beans = new CsvToBeanBuilder(new FileReader("src/main/resources/users.csv"))
-                .withType(RegisteredVisitorsDAO.class).build().parse();
-        }catch (Exception e){e.printStackTrace();}
-        return beans;
+    private String getPasswordByName(String userName){
+        String result = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/users.csv"))){
+            String line;
+            while ((line = reader.readLine()) != null){
+                String[] cols = line.split(",");
+                if (cols[1].equals(userName)){
+                    result = cols[8];
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
-    private void getPasswordByName(int index){
-        ListUsers listUsers = new ListUsers();
-//        System.out.println(listUsers.readFromCSV().get(index).getPassword());
-        while (listUsers.readFromCSV().listIterator().hasNext()){
-            System.out.println(listUsers.readFromCSV().listIterator().nextIndex());
-        }
+    private boolean isMatchesPassword(String passwordInput, String passwordChecker){
+        return new WebSecurityConfig().isMatchesPassword(passwordInput,passwordChecker);
+    }
 
-            System.out.println(list.get(1));
+    public boolean checkPassword(String name, String inputPassword){
+       ListUsers listUsers = new ListUsers();
+       String passwordChecker = listUsers.getPasswordByName(name);
+       return listUsers.isMatchesPassword(inputPassword, passwordChecker);
     }
 
     public static void main(String[] args) {
-//        System.out.println(new WebSecurityConfig().isMatchesPassword("abc","abc"));
-        new ListUsers().getPasswordByName(1);
+        System.out.println((new ListUsers().checkPassword("admin","password")));
     }
 
 }

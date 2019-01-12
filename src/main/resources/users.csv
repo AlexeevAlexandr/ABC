@@ -1,3 +1,4 @@
-Id,UsrName,FirstName,LastName,enabled,Email,Country,Gender,Password
+Id,UserName,FirstName,LastName,enabled,Email,Country,Gender,Password
 1,tom,Tom,Tom,true,tom@waltdisney.com,United States,M,password1
 2,ann,Ann,Ann,true,ann@waltdisney.com,United States,F,password2
+3,admin,Alexandr,Alexeev,false,alexandralexeevkiev@gmail.com,UA,M,$2a$10$HkQiC8GoT1393fk6tCtTTeiwAZ/zlX1q27ynsubqQMfztjC0Pg3wC

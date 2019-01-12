@@ -17,7 +17,7 @@ public class AppUser {
 
     }
 
-    public AppUser(Long userId, String userName, String firstName, String lastName, boolean enabled, String gender, String email, String countryCode, String encryptedPassword) {
+    public AppUser(Long userId, String userName, String firstName, String lastName, boolean enabled, String email, String countryCode, String gender, String encryptedPassword) {
         super();
         this.userId = userId;
         this.userName = userName;
