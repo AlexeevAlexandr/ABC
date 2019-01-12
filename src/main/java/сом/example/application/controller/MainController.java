@@ -6,10 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import сом.example.application.dao.AppUserDAO;
 import сом.example.application.dao.CountryDAO;
@@ -24,9 +21,7 @@ import java.util.List;
 public class MainController {
 
     private final AppUserDAO appUserDAO;
-
     private final CountryDAO countryDAO;
-
     private final AppUserValidator appUserValidator;
 
     @Autowired
@@ -109,4 +104,13 @@ public class MainController {
         return "redirect:/registerSuccessful";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "/login";
+    }
+
+    @GetMapping("/403")
+    public String error403() {
+        return "/error/403";
+    }
 }

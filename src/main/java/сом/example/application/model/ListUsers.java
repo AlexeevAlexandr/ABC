@@ -1,7 +1,5 @@
 package сом.example.application.model;
 
-import сом.example.application.config.WebSecurityConfig;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -42,7 +40,7 @@ public class ListUsers {
                 user.getEncryptedPassword() + "\n";
     }
 
-    private String getPasswordByName(String userName){
+    public String getPasswordByName(String userName){
         String result = "";
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/users.csv"))){
             String line;
@@ -57,19 +55,4 @@ public class ListUsers {
         }
         return result;
     }
-
-    private boolean isMatchesPassword(String passwordInput, String passwordChecker){
-        return new WebSecurityConfig().isMatchesPassword(passwordInput,passwordChecker);
-    }
-
-    public boolean checkPassword(String name, String inputPassword){
-       ListUsers listUsers = new ListUsers();
-       String passwordChecker = listUsers.getPasswordByName(name);
-       return listUsers.isMatchesPassword(inputPassword, passwordChecker);
-    }
-
-    public static void main(String[] args) {
-        System.out.println((new ListUsers().checkPassword("admin","password")));
-    }
-
 }
