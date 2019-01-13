@@ -14,8 +14,6 @@ import сом.example.application.formbean.AppUserForm;
 import сом.example.application.model.AppUser;
 import сом.example.application.model.Country;
 import сом.example.application.validator.AppUserValidator;
-import org.springframework.web.bind.annotation.GetMapping;
-
 
 import java.util.List;
 
@@ -114,5 +112,10 @@ public class MainController {
     @GetMapping("/403")
     public String error403() {
         return "/error/403";
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "/admin";
     }
 }

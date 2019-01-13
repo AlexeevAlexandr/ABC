@@ -1,20 +1,16 @@
 <div xmlns="http://www.w3.org/1999/xhtml"
      xmlns:th="http://www.thymeleaf.org"
      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px; background-color: aqua">
 
-    <a th:href="@{/}">Home</a>  |  &nbsp;<a th:href="@{/members}">Members</a>  | &nbsp;<a th:href="@{/register}">Register</a>
+    <a th:href="@{/}">Home</a>&nbsp;&nbsp;
+    <a th:href="@{/members}">Members</a>&nbsp;&nbsp;
+    <a th:href="@{/register}">Register</a>&nbsp;&nbsp;
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Admin page</a>
+
 
     <div style="text-align: right">
-    <span sec:authorize="!isAuthenticated()">
-        <a th:href="@{/login}">Sign in</a>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span sec:authorize="isAuthenticated()">
-        User: <span sec:authentication="name">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <a th:href="@{/logout}">Sign Out</a>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Sign in</a>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span sec:authorize="isAuthenticated()">User: <span sec:authentication="name"></span>&nbsp;&nbsp;&nbsp;&nbsp;<a th:href="@{/logout}">Sign Out</a>&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </div>
-
-
-    <!--<div sec:authorize="isAuthenticated()">This content is only shown to authenticated users.</div>-->
-    <!--<div sec:authorize="hasRole('ROLE_ADMIN')">This content is only shown to administrators.</div>-->
-    <!--<div sec:authorize="hasRole('ROLE_USER')">This content is only shown to users.</div>-->
 </div>
