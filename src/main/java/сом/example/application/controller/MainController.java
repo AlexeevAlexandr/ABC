@@ -15,7 +15,6 @@ import сом.example.application.model.AppUser;
 import сом.example.application.model.Country;
 import сом.example.application.validator.AppUserValidator;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
