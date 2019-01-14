@@ -16,7 +16,6 @@ import сом.example.application.model.ListUsers;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     private final AccessDeniedHandler accessDeniedHandler;
 
     @Autowired
@@ -52,6 +51,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .withUser("admin").password(new ListUsers().getPasswordByName("admin")).roles("ADMIN");
     }
-
-
 }

@@ -14,7 +14,6 @@ public class AppUserForm {
     private String countryCode;
 
     public AppUserForm() {
-
     }
 
     public AppUserForm(Long userId, String userName, String firstName, String lastName, boolean enabled, String gender, String email, String countryCode, String password, String confirmPassword) {

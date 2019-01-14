@@ -1,3 +1,4 @@
 Id,UserName,FirstName,LastName,enabled,Email,Country,Gender,Password
 1,admin,Alexandr,Alexeev,false,alexandralexeevkiev@gmail.com,UA,M,$2a$10$HkQiC8GoT1393fk6tCtTTeiwAZ/zlX1q27ynsubqQMfztjC0Pg3wC
 2,user,Fart,Fart,false,fart82@ukr.net,AE,M,$2a$10$8lAWMpx2UihhNmKeyPgVdOEMF.egK1NowMbjlLDeTlzc5MF7Hk49.
+3,fart,fart,fartovich,false,fart822@ukr.net,AW,M,$2a$10$OCIrlsVeGsSNdRnLUEKrh.c03bphOha0PEZDrSEjq9FM0d11DA7WK

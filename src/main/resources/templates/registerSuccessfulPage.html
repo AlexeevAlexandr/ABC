@@ -6,11 +6,10 @@
         span {color: blue;}
     </style>
 </head>
-
 <body>
 
 <!-- Include _menu.html -->
-<th:block th:include="/menu"></th:block>
+<th:block th:include="/menu"/>
 
 <h2>You have successfully registered!</h2>
 
@@ -20,7 +19,5 @@
         <li>Email: <span th:utext="${flashUser.email}">..</span></li>
     </ul>
 </div>
-
-
 </body>
 </html>

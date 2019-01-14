@@ -15,6 +15,7 @@ import сом.example.application.model.AppUser;
 import сом.example.application.model.Country;
 import сом.example.application.validator.AppUserValidator;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -46,20 +47,20 @@ public class MainController {
         }
     }
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/")
     public String viewHome() {
         return "welcomePage";
     }
 
-    @RequestMapping("/members")
+    @RequestMapping(value = "/members")
     public String viewMembers(Model model) {
         List<AppUser> list = appUserDAO.getAppUsers();
         model.addAttribute("members", list);
         return "membersPage";
     }
 
-    @RequestMapping("/registerSuccessful")
-    public String viewRegisterSuccessful() {
+    @RequestMapping(value = "/registerSuccessful")
+    public String registerSuccessfulPage() {
         return "registerSuccessfulPage";
     }
 
@@ -104,18 +105,18 @@ public class MainController {
         return "redirect:/registerSuccessful";
     }
 
-    @GetMapping("/login")
+    @RequestMapping(value = "/login")
     public String login() {
-        return "/login";
+        return "login";
     }
 
-    @GetMapping("/403")
+    @GetMapping(value = "/403")
     public String error403() {
-        return "/error/403";
+        return "error/403";
     }
 
-    @GetMapping("/admin")
+    @GetMapping(value = "/admin")
     public String admin() {
-        return "/admin";
+        return "admin";
     }
 }
