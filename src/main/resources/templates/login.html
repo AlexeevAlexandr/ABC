@@ -41,11 +41,11 @@
 </head>
 <body>
     <!-- Include menu.html -->
-    <th:block th:include="/menu"/>
+    <th:block th:include="header/menu"/>
     <div class="container">
         <div class="row" style="margin-top:20px">
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                <form th:action="@{/login}" method="post">
+                <form action="/login" method="post">
                     <fieldset>
                         <h1>Please Sign In</h1>
 
@@ -68,7 +68,6 @@
                             <input type="password" name="password" id="password" class="form-control input-lg"
                                    placeholder="Password" required="true"/>
                         </div>
-
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <button type="submit" class="btn btn-lg btn-primary btn-block" value="Sign In">Sign In</button>

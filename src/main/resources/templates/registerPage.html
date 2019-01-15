@@ -34,7 +34,7 @@
 </head>
 <body>
 <!-- Include menu.html -->
-<th:block th:include="/menu"/>
+<th:block th:include="header/menu"/>
     <fieldset>
         <legend><h2>Registration form</h2></legend>
         <div th:if="${errorMessage != null}" th:utext="${errorMessage}" class="error">...</div>

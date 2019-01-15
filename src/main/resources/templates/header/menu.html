@@ -4,8 +4,9 @@
      style="border: 1px solid #ccc;padding:5px;margin-bottom:20px; background-color: aqua">
 
     <a th:href="@{/}">Home</a>&nbsp;&nbsp;
-    <a th:href="@{/members}">Members</a>&nbsp;&nbsp;
     <a th:href="@{/register}">Register</a>&nbsp;&nbsp;
+    <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/members}">Members</a>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/members}">Members</a>&nbsp;&nbsp;
     <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Admin page</a>
 
 
