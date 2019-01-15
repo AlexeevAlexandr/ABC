@@ -15,6 +15,8 @@ import сом.example.application.model.AppUser;
 import сом.example.application.model.Country;
 import сом.example.application.validator.AppUserValidator;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -105,7 +107,8 @@ public class MainController {
     }
 
     @RequestMapping(value = "/login")
-    public String login() {
+    public String login(HttpServletRequest request) {
+        System.out.println(Arrays.toString(request.getCookies()));
         return "login";
     }
 
